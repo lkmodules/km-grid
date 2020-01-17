@@ -1,0 +1,161 @@
+@import '~iview/src/styles/index.less';
+@import './custom.less';
+@km-grid-cls: ~'km-grid';
+
+.@{km-grid-cls} {
+  position: relative;
+  width: 100%;
+  border: 1px solid @km-border-color;
+  &-th,
+  &-td {
+    display: inline-block;
+    text-align: left;
+    vertical-align: top;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+    padding: 0 10px;
+    & > .ivu-checkbox-wrapper {
+      margin-right: 0;
+      & .ivu-checkbox {
+        margin-right: 0;
+      }
+    }
+  }
+  &-th {
+    border-bottom: 0;
+  }
+  &-sort {
+    display: inline-block;
+    width: 14px;
+    height: 16px;
+    margin-left: 5px;
+    margin-top: 1px;
+    vertical-align: middle;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    & i {
+      display: block;
+      height: 4.6px;
+      line-height: 4.6px;
+      overflow: hidden;
+      position: absolute;
+      color: #bbbec4;
+      top: 0;
+    }
+    & i:last-child {
+      top: 8px;
+    }
+    &-active {
+      color: @km-primary-color!important;
+    }
+  }
+  &-border {
+    border-right: 1px solid @km-border-color;
+  }
+  &-header > .km-grid-tr {
+    background-color: @km-grid-bg;
+    font-weight: @km-font-weight;
+  }
+  &-tr {
+    border-bottom: 1px solid @km-border-color;
+    background-color: #fff;
+  }
+  &-body &-tr {
+    &-active {
+      background-color: @km-primary-tint;
+    }
+  }
+  &-total > &-tr {
+    border-top: 1px solid @km-border-color;
+    border-bottom: 0;
+  }
+  &-center &-tr-br{
+    border-right: 1px solid @km-border-color;
+  }
+  &-body-scroll {
+    overflow-y: auto;
+  }
+  &-noscroll {
+    overflow-y: hidden;
+    width: 100%;
+  }
+  &-header-scroll {
+    overflow: hidden;
+  }
+  &-header-scroll-short {
+    overflow: hidden;
+  }
+  &-fixed-left {
+    position: absolute;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    z-index: 1;
+    &:hover {
+      box-shadow: 2px 0 6px -2px @km-shadow-color;
+    }
+  }
+  &-fixed-right {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    overflow: hidden;
+    z-index: 1;
+    &:hover {
+      box-shadow: -2px 0 6px -2px @km-shadow-color;
+    }
+  }
+  &-fixed-right &-th:first-child,
+  &-fixed-right &-td:first-child {
+    border-left: 1px solid @km-border-color;
+  }
+
+  &-cell-operate {
+    color: @km-font-tint;
+    padding: 0 5px;
+    & i {
+      font-size: 18px;
+    }
+  }
+  &-link-td {
+    color: @km-primary-color;
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  &-null {
+    position: relative;
+    &-wrap {
+      background: url('../assets/empty.png')
+        no-repeat top center;
+      position: absolute;
+      top: 44px;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+      width: 300px;
+      height: 215px;
+      color: @km-font-tint;
+      &-text {
+        width: 100%;
+        height: 48px;
+        line-height: 24px;
+        position: absolute;
+        bottom: 0;
+        text-align: center;
+      }
+    }
+  }
+  &-drag-line {
+    border-right: 1px dashed @km-primary-color;
+    width: 1px;
+    position: absolute;
+    top: 1px;
+    z-index: 2;
+  }
+}
